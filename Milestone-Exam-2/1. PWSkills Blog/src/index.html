@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PWSkills Blog</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main class="flex flex-col items-center font-[poppins] gap-6">
+            <nav class="flex justify-between items-center w-[95%] h-20">
+                <h1 class="text-4xl font-semibold">PWSkills Blog</h1>
+                <button
+                    id="addBlogBtn"
+                    class="text-2xl"
+                    onclick="togglePopup()"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button
+                    id="closeBlogBtn"
+                    class="hidden text-2xl"
+                    onclick="closeBlog()"
+                >
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </nav>
+            <div id="blogs" class="flex flex-wrap gap-5 w-[88%]"></div>
+        </main>
+        <div
+            id="overlay"
+            class="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 hidden"
+        ></div>
+        <div
+            id="popup"
+            class="w-[30%] h-[60vh] absolute top-[20%] left-[35%] bg-[#f4f6fe] rounded-2xl hidden flex-col justify-between items-center p-3 shadow-lg z-20"
+        >
+            <button onclick="togglePopup()" class="absolute right-10 top-3">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <form
+                class="flex flex-col justify-between items-center w-[86%] gap-4 mt-7"
+            >
+                <input
+                    class="w-[100%] p-2 border-2 border-[#e1e0e1] placeholder:text-sm font-medium hover:border-[#6f11f5] focus:outline-none focus:border-[#6f11f5]"
+                    id="imageUrl"
+                    type="text"
+                    placeholder="Enter Blog Image URL :"
+                />
+                <input
+                    class="w-[100%] p-2 border-2 border-[#e1e0e1] placeholder:text-sm font-medium hover:border-[#6f11f5] focus:outline-none focus:border-[#6f11f5]"
+                    id="title"
+                    type="text"
+                    placeholder="Enter Blog Title :"
+                    required
+                />
+                <input
+                    class="w-[100%] p-2 border-2 border-[#e1e0e1] placeholder:text-sm font-medium hover:border-[#6f11f5] focus:outline-none focus:border-[#6f11f5]"
+                    id="description"
+                    type="text"
+                    placeholder="Enter Blog Description :"
+                    required
+                />
+                <textarea
+                    class="resize-none w-[100%] h-[150px] p-2 border-2 border-[#e1e0e1] placeholder:text-sm font-medium hover:border-[#6f11f5] focus:outline-none focus:border-[#6f11f5]"
+                    id="readContent"
+                    placeholder="Write.."
+                    required
+                ></textarea>
+                <button
+                    onclick="createNewBlog()"
+                    class="w-[100%] p-2 bg-[#6f11f5] rounded-xl text-white text-sm"
+                >
+                    Add Blog
+                </button>
+            </form>
+        </div>
+        <script src="./script.js"></script>
+        <script
+            src="https://kit.fontawesome.com/c46ec1b7c4.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
